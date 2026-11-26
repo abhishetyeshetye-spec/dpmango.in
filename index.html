@@ -89,7 +89,7 @@ footer{background:#0d3020;color:#e5f0e7;padding:28px 0}.foot{display:flex;justif
 </main>
 <footer><div class="wrap foot"><div><strong>Dhutpapeshwar Mango</strong><br><small>Abhijeet Arvind Shetye · Rajapur, Ratnagiri, Maharashtra</small></div><div>Ratnagiri Alphonso Mangoes</div></div></footer>
 <script>
-const prices={'AAA':1800,'3.5 Dz':4500,'4 Dz':3500,'4.5 Dz':2500};
+const prices={'AAA':1,800,'3.5 Dz':4,500,'4 Dz':3,500,'4.5 Dz':2,500};
 function pick(g){document.getElementById('grade').value=g;document.getElementById('order').scrollIntoView({behavior:'smooth'});updateTotal();}
 function updateTotal(){let g=document.getElementById('grade').value,q=Math.max(0,Number(document.getElementById('qty').value)||0),sub=(prices[g]||0)*q,del=sub?200:0;document.getElementById('total').innerHTML=`Subtotal: ₹${sub.toLocaleString('en-IN')}<br>Delivery: ₹${del.toLocaleString('en-IN')}<br><strong>Grand total: ₹${(sub+del).toLocaleString('en-IN')}</strong>`;}
 function sendOrder(e){e.preventDefault();let g=document.getElementById('grade').value,q=Number(document.getElementById('qty').value),name=document.getElementById('name').value.trim(),city=document.getElementById('city').value,address=document.getElementById('address').value.trim();if(!g||q<1||!name||!city||!address)return;let sub=prices[g]*q,del=200,total=sub+del;let msg=`Dhutpapeshwar Mango Order%0AName: ${encodeURIComponent(name)}%0ACity: ${encodeURIComponent(city)}%0AAddress: ${encodeURIComponent(address)}%0AGrade: ${encodeURIComponent(g)}%0AQuantity: ${q}%0ASubtotal: ₹${sub}%0ADelivery: ₹${del}%0AGrand Total: ₹${total}`;window.open('https://wa.me/919226578484?text='+msg,'_blank');}
