@@ -90,7 +90,7 @@ footer{background:#0d3020;color:#e5f0e7;padding:28px 0}.foot{display:flex;justif
 </main>
 <footer><div class="wrap foot"><div><strong>Dhutpapeshwar Mango</strong><br><small>Abhijeet Arvind Shetye · Rajapur, Ratnagiri, Maharashtra</small></div><div>Ratnagiri Alphonso Mangoes</div></div></footer>
 <script>
-const products=[{grade:'AAA',price:1700,label:'AAA'},{grade:'3.5 Dz',price:4000,label:'3.5 Dz'},{grade:'4 Dz',price:3000,label:'4 Dz'},{grade:'4.5 Dz',price:2000,label:'4.5 Dz'}];
+const products=[{grade:'AAA',price:1200,label:'AAA'},{grade:'3.5 Dz',price:4500,label:'3.5 Dz'},{grade:'4 Dz',price:3500,label:'4 Dz'},{grade:'4.5 Dz',price:2500,label:'4.5 Dz'}];
 const prices=Object.fromEntries(products.map(p=>[p.grade,p.price]));
 function renderPrices(){const select=document.getElementById('grade');const selected=select.value;select.innerHTML='<option value="">Select grade</option>'+products.map(p=>`<option value="${p.grade}">${p.grade} — ₹${p.price.toLocaleString('en-IN')}</option>`).join('');select.value=selected;products.forEach(p=>{const el=document.getElementById('price-'+p.grade.replaceAll(' ','-'));if(el){const unit=p.grade==='AAA'?' <span class="unit">/ dozen</span>':'';el.innerHTML='₹'+p.price.toLocaleString('en-IN')+unit;}});}
 function pick(g){document.getElementById('grade').value=g;document.getElementById('order').scrollIntoView({behavior:'smooth'});updateTotal();}
